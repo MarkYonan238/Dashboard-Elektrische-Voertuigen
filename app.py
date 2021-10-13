@@ -319,49 +319,49 @@ if rad == 'Elektrische Voertuigen':
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Benzine)", 
                             'x':0.5}})
         st.plotly_chart(fig4)
-        
-    elif dropdown == 'Elektriciteit':
-        #Elektriciteit
-        fig5 = px.scatter(df_vr, x='Datum1', y='Aantal Elektriciteit', trendline='ols',trendline_color_override='red')
-        fig5.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
-                            'yaxis':{'title':{'text':"Aantal auto's"}}, 
-                            'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Elektriciteit)", 
-                            'x':0.5}})
-        st.plotly_chart(fig5)
-        
-    elif dropdown == 'Diesel':
-        #Diesel
-        fig6 = px.scatter(df_vr, x='Datum1', y='Aantal Diesel', trendline='ols', trendline_color_override='red')
-        fig6.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
-                            'yaxis':{'title':{'text':"Aantal auto's"}}, 
-                            'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Diesel)", 
-                            'x':0.5}})
-        st.plotly_chart(fig6)
-        
-    elif dropdown == 'LPG':
-        #LPG
-        fig7 = px.scatter(df_vr, x='Datum1', y='Aantal LPG', trendline='ols', trendline_color_override='red')
-        fig7.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
-                            'yaxis':{'title':{'text':"Aantal auto's"}}, 
-                            'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (LPG)", 
-                            'x':0.5}})
-        st.plotly_chart(fig7)
-        
-    elif dropdown == 'Waterstof':
-        #Waterstof
-        fig8 = px.scatter(df_vr, x='Datum1', y='Aantal Waterstof', trendline='ols', trendline_color_override='red')
-        fig8.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
-                            'yaxis':{'title':{'text':"Aantal auto's"}}, 
-                            'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Waterstof)", 
-                            'x':0.5}})
-        st.plotly_chart(fig8)
-        
-    elif dropdown == 'CNG':
-        #CNG
-        fig9 = px.scatter(df_vr, x='Datum1', y='Aantal CNG', trendline='ols', trendline_color_override='red')
-        fig9.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
-                            'yaxis':{'title':{'text':"Aantal auto's"}}, 
-                            'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (CNG)", 
-                            'x':0.5}})
-        st.plotly_chart(fig9)
 
+
+#     elif dropdown == 'Elektriciteit':
+#         #Elektriciteit
+#         fig5 = px.scatter(df_vr, x='Datum1', y='Aantal Elektriciteit', trendline='ols',trendline_color_override='red')
+#         fig5.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+#                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
+#                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Elektriciteit)", 
+#                             'x':0.5}})
+#         st.plotly_chart(fig5)
+#         
+#     elif dropdown == 'Diesel':
+#         #Diesel
+#         fig6 = px.scatter(df_vr, x='Datum1', y='Aantal Diesel', trendline='ols', trendline_color_override='red')
+#         fig6.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+#                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
+#                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Diesel)", 
+#                             'x':0.5}})
+#         st.plotly_chart(fig6)
+#         
+#     elif dropdown == 'LPG':
+#         #LPG
+#         fig7 = px.scatter(df_vr, x='Datum1', y='Aantal LPG', trendline='ols', trendline_color_override='red')
+#         fig7.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+#                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
+#                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (LPG)", 
+#                             'x':0.5}})
+#         st.plotly_chart(fig7)
+#         
+#     elif dropdown == 'Waterstof':
+#         #Waterstof
+#         fig8 = px.scatter(df_vr, x='Datum1', y='Aantal Waterstof', trendline='ols', trendline_color_override='red')
+#         fig8.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+#                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
+#                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Waterstof)", 
+#                             'x':0.5}})
+#         st.plotly_chart(fig8)
+#         
+#     elif dropdown == 'CNG':
+#         #CNG
+#         fig9 = px.scatter(df_vr, x='Datum1', y='Aantal CNG', trendline='ols', trendline_color_override='red')
+#         fig9.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+#                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
+#                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (CNG)", 
+#                             'x':0.5}})
+#         fig9.show()
