@@ -154,8 +154,8 @@ if rad == 'Maps':
     ##############################################################################################################
     st.markdown('#')
     st.subheader('Aantal Laadpalen per Provincie')
-    '...'
-    
+    'In alle bovenstaande kaarten is alleen ingezoomd op de provincie Drenthe. Om deze te kunnen vergelijken met andere provincies is ook nog een kaart gemaakt voor heel Nederland. Hierin is per provincie te zien hoeveel laadpalen daar zijn. Wat opvalt is dat in de Randstad de meeste laadpalen zijn.'
+    'Met het dropdown menu kan nog worden ingezoomd op een losse provincie.'
     #Code laadpalen per provincie
     df_lprov= pd.read_csv('Laadpaal_Prov.csv')
     df_lprov_pivot = df_lprov.pivot(columns=['name'], values='# Laadpalen')
