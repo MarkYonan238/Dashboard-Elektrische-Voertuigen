@@ -79,7 +79,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Heatmap Laadpalen Drenthe')
-    'In bovenstaande kaart zijn de locaties van de laadpalen weergegeven. Met behulp van deze kaart is een headmap gemaakt om snel en overzichtelijk te kunnen zien waar de meeste laadpalen zich bevinden.'
+    'In onderstaande kaart zijn de locaties van de laadpalen weergegeven. Met behulp van deze kaart is een heatmap gemaakt om snel en overzichtelijk te kunnen zien waar de meeste laadpalen zich bevinden.'
     
     #Code heatmap Drenthe
     map_heat = folium.Map(location=[52.9476012, 6.6230586], zoom_start=9.4, tiles='cartodbpositron')
