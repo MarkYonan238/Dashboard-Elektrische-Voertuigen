@@ -13,6 +13,8 @@ import folium
 from folium import plugins
 from streamlit_folium import folium_static
 from PIL import Image
+import statsmodels.api as sm
+import plotly.graph_objects as go
 
 
 # In[2]:
@@ -20,7 +22,7 @@ from PIL import Image
 
 #Sidebar info
 st.set_page_config(layout="wide")
-rad = st.sidebar.radio(options=('Home', 'Maps', 'Laadpaal Info', 'Elektrische Voertuigen'), 
+rad = st.sidebar.radio(options=('Home', 'Maps', 'Laadpaal Info', 'Soorten Voertuigen'), 
                         label='Selecteer Categorie')
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')
@@ -41,8 +43,7 @@ if rad == 'Home':
     st.title('Dashboard Elektrische Voertuigen Nederland')
     img = Image.open("foto.png")
     st.image(img, width=800)
-    '....'
-
+    "Het aanbod van elektrische auto's is de afgelopen jaren steeds meer gegroeid. Dat is ook te zien op de weg. Het percentage elektrische auto’s op de weg lijkt steeds groter te worden. Om dat te onderzoeken hebben we gekeken naar data van de RDW over elektrische voertuigen. Ook is er gekeken naar de plaatsing van laadpalen in Drenthe en een verdeling van de laadtijden per paal. Er wordt een regressielijn gevisualiseerd om een voorspelling te kunnen maken over de groei van auto’s van verschillende brandstoftypes. "
 
 # ## Maps
 
@@ -53,7 +54,7 @@ if rad == 'Maps':
     st.header('Map Visualisaties')
     st.markdown('#')
     st.subheader('Aantal Laadpalen Drenthe')
-    '...'
+    'Onderstaande afbeelding geeft een kaart weer van de laadpaal locaties in de provincie Drenthe.'
     ##############################################################################################################
     #Code laadpalen Drenthe
     gpd_provinces = gpd.read_file('provinces.geojson')
@@ -77,7 +78,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Heatmap Laadpalen Drenthe')
-    '...'
+    'In onderstaande kaart zijn de locaties van de laadpalen weergegeven. Met behulp van deze kaart is een heatmap gemaakt om snel en overzichtelijk te kunnen zien waar de meeste laadpalen zich bevinden.'
     
     #Code heatmap Drenthe
     map_heat = folium.Map(location=[52.9476012, 6.6230586], zoom_start=9.4, tiles='cartodbpositron')
@@ -96,7 +97,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Tarieven Laadpalen Drenthe')
-    '...'
+    "Voor dezelfde provincie hebben we ook gekeken naar de tarieven voor het laden van de auto's. De rode punten geven aan dat de tariefwaarde onbekend of gratis is. Wanneer op de groene punten wordt geklikt komt er te staan wat de tarief waarde is van de gekozen locatie."
     
     #Code tarieven laadpalen
     def bekend(prijs):
@@ -135,7 +136,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Gemaakte Laadpalen per Jaar Nederland')
-    '...'
+    'In onderstaande histogram is een overzicht te zien waarin staat hoeveel laadpalen er per jaar geplaatst zijn. Zo is te zien dat er in 2015 meer dan 5000 laadpalen geplaatst zijn.'
     
     #Code histogram laadpalen jaren
     df_map['Date Created'] = pd.to_datetime(df_map['Date Created'])
@@ -152,8 +153,8 @@ if rad == 'Maps':
     ##############################################################################################################
     st.markdown('#')
     st.subheader('Aantal Laadpalen per Provincie')
-    '...'
-    
+    'In alle bovenstaande kaarten is alleen ingezoomd op de provincie Drenthe. Om deze te kunnen vergelijken met andere provincies is ook nog een kaart gemaakt voor heel Nederland. Hierin is per provincie te zien hoeveel laadpalen daar zijn. Wat opvalt is dat in de Randstad de meeste laadpalen zijn.'
+    'Met het dropdown menu kan nog worden ingezoomd op een losse provincie.'
     #Code laadpalen per provincie
     df_lprov= pd.read_csv('Laadpaal_Prov.csv')
     df_lprov_pivot = df_lprov.pivot(columns=['name'], values='# Laadpalen')
@@ -223,7 +224,7 @@ if rad == 'Laadpaal Info':
     st.header('Laadpaal Visualisaties')
     st.markdown('#')
     st.subheader('Verdeling Laadtijden')
-    '...'
+    'In onderstaande histogram wordt de laadtijd in minuten aangegeven met de frequentie. De gemiddelde tijd dat een auto opgeladen wordt is 232 minuten. De meerderheid van de mensen kiest ervoor om hun auto plusminus 25 minuten op te laden.'
     ##############################################################################################################
     #Code verdeling laadtijden
     paal = pd.read_csv('laadpaaldata2.csv')
@@ -249,11 +250,11 @@ if rad == 'Laadpaal Info':
 # In[6]:
 
 
-if rad == 'Elektrische Voertuigen':
-    st.header('Visualisaties Elektrische Voertuigen')
+if rad == 'Soorten Voertuigen':
+    st.header('Visualisaties Voertuigen')
     st.markdown('#')
-    st.subheader('Aantal Voeruigen per Brandstof Categorie')
-    '...'
+    st.subheader('Aantal Voertuigen per Brandstof Categorie')
+    'In deze grafiek is voor elke brandstof categorie een lijn te zien. Deze geeft de groei aan van de verkochte voertuigen (over de afgelopen vijf jaar) op een logaritmische schaalverdeling.'
     ##############################################################################################################
     cm = pd.read_csv('cmm.csv')
 
@@ -283,7 +284,7 @@ if rad == 'Elektrische Voertuigen':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Voorspelling Aantal Voertuigen per Brandstof Categorie')
-    '...'
+    'In deze grafiek is voor de x-as (horizontaal) gekozen voor een nulpunt omdat met een datetime werken niet mogelijk was voor verschillende functies. Dit nulpunt wordt vertegenwoordigd door de datum 1 januari 2020. Elke stap verder is een dag. Dit verklaard de grote getallen op de x-as.'
     st.markdown('#')
     st.markdown('#')
     
@@ -314,7 +315,7 @@ if rad == 'Elektrische Voertuigen':
     if dropdown == 'Benzine':
         #Benzine
         fig4 = px.scatter(df_vr, x='Datum1', y='Aantal Benzine', trendline='ols', trendline_color_override='red')
-        fig4.update_layout({'xaxis':{'title':{'text': 'Data'}},  
+        fig4.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}},  
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Benzine)", 
                             'x':0.5}})
@@ -323,7 +324,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Elektriciteit':
         #Elektriciteit
         fig5 = px.scatter(df_vr, x='Datum1', y='Aantal Elektriciteit', trendline='ols',trendline_color_override='red')
-        fig5.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig5.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Elektriciteit)", 
                             'x':0.5}})
@@ -332,7 +333,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Diesel':
         #Diesel
         fig6 = px.scatter(df_vr, x='Datum1', y='Aantal Diesel', trendline='ols', trendline_color_override='red')
-        fig6.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig6.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Diesel)", 
                             'x':0.5}})
@@ -341,7 +342,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'LPG':
         #LPG
         fig7 = px.scatter(df_vr, x='Datum1', y='Aantal LPG', trendline='ols', trendline_color_override='red')
-        fig7.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig7.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (LPG)", 
                             'x':0.5}})
@@ -350,7 +351,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Waterstof':
         #Waterstof
         fig8 = px.scatter(df_vr, x='Datum1', y='Aantal Waterstof', trendline='ols', trendline_color_override='red')
-        fig8.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig8.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Waterstof)", 
                             'x':0.5}})
@@ -359,7 +360,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'CNG':
         #CNG
         fig9 = px.scatter(df_vr, x='Datum1', y='Aantal CNG', trendline='ols', trendline_color_override='red')
-        fig9.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig9.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (CNG)", 
                             'x':0.5}})
