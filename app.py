@@ -257,6 +257,7 @@ if rad == 'Soorten Voertuigen':
     'In deze grafiek is voor elke brandstof categorie een lijn te zien. Deze geeft de groei aan van de verkochte voertuigen (over de afgelopen vijf jaar) op een logaritmische schaalverdeling.'
     ##############################################################################################################
     cm = pd.read_csv('cmm.csv')
+    cm2 = pd.read_csv('cmm2.csv')
 
     #Code lijndiagram per brandstof categorie
     fig3= px.ecdf(cm, x='Datum', color='Brandstof omschrijving', ecdfnorm=None, log_y=True)
