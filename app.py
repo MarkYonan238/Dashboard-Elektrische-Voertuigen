@@ -98,7 +98,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Tarieven Laadpalen Drenthe')
-    '...'
+    "Voor dezelfde provincie hebben we ook gekeken naar de tarieven voor het laden van de auto's. De rode punten geven aan dat de tariefwaarde onbekend of gratis is. Wanneer op de groene punten wordt geklikt komt er te staan wat de tarief waarde is van de gekozen locatie."
     
     #Code tarieven laadpalen
     def bekend(prijs):
