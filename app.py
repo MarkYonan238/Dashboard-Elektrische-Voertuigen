@@ -254,7 +254,7 @@ if rad == 'Laadpaal Info':
 if rad == 'Elektrische Voertuigen':
     st.header('Visualisaties Elektrische Voertuigen')
     st.markdown('#')
-    st.subheader('Aantal Voeruigen per Brandstof Categorie')
+    st.subheader('Aantal Voertuigen per Brandstof Categorie')
     '...'
     ##############################################################################################################
     cm = pd.read_csv('cmm.csv')
