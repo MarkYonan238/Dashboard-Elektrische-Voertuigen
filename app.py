@@ -225,7 +225,7 @@ if rad == 'Laadpaal Info':
     st.header('Laadpaal Visualisaties')
     st.markdown('#')
     st.subheader('Verdeling Laadtijden')
-    '...'
+    'In onderstaande histogram wordt de laadtijd in minuten aangegeven met de frequentie. De gemiddelde tijd dat een auto opgeladen wordt is 232 minuten. De meerderheid van de mensen kiest ervoor om hun auto plusminus 25 minuten op te laden.'
     ##############################################################################################################
     #Code verdeling laadtijden
     paal = pd.read_csv('laadpaaldata2.csv')
@@ -252,7 +252,7 @@ if rad == 'Laadpaal Info':
 
 
 if rad == 'Elektrische Voertuigen':
-    st.header('Visualisaties Elektrische Voertuigen')
+    st.header('Visualisaties Voertuigen')
     st.markdown('#')
     st.subheader('Aantal Voertuigen per Brandstof Categorie')
     '...'
@@ -285,7 +285,7 @@ if rad == 'Elektrische Voertuigen':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Voorspelling Aantal Voertuigen per Brandstof Categorie')
-    'In deze grafiek is voor de x-as (horizontaal) gekozen voor een nulpunt omdat met een datetime werken niet mogelijk was voor verschillende functies. Dit nulpunt wordt vertegenwoordigd door de datum 1 januari 2016. Elke stap verder is een dag. Dit verklaard de grote getallen op de x-as.'
+    'In deze grafiek is voor de x-as (horizontaal) gekozen voor een nulpunt omdat met een datetime werken niet mogelijk was voor verschillende functies. Dit nulpunt wordt vertegenwoordigd door de datum 1 januari 2020. Elke stap verder is een dag. Dit verklaard de grote getallen op de x-as.'
     st.markdown('#')
     st.markdown('#')
     
