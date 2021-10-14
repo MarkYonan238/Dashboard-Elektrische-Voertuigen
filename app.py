@@ -316,7 +316,7 @@ if rad == 'Elektrische Voertuigen':
     if dropdown == 'Benzine':
         #Benzine
         fig4 = px.scatter(df_vr, x='Datum1', y='Aantal Benzine', trendline='ols', trendline_color_override='red')
-        fig4.update_layout({'xaxis':{'title':{'text': 'Data'}},  
+        fig4.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}},  
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Benzine)", 
                             'x':0.5}})
@@ -325,7 +325,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Elektriciteit':
         #Elektriciteit
         fig5 = px.scatter(df_vr, x='Datum1', y='Aantal Elektriciteit', trendline='ols',trendline_color_override='red')
-        fig5.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig5.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Elektriciteit)", 
                             'x':0.5}})
@@ -334,7 +334,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Diesel':
         #Diesel
         fig6 = px.scatter(df_vr, x='Datum1', y='Aantal Diesel', trendline='ols', trendline_color_override='red')
-        fig6.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig6.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Diesel)", 
                             'x':0.5}})
@@ -343,7 +343,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'LPG':
         #LPG
         fig7 = px.scatter(df_vr, x='Datum1', y='Aantal LPG', trendline='ols', trendline_color_override='red')
-        fig7.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig7.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (LPG)", 
                             'x':0.5}})
@@ -352,7 +352,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'Waterstof':
         #Waterstof
         fig8 = px.scatter(df_vr, x='Datum1', y='Aantal Waterstof', trendline='ols', trendline_color_override='red')
-        fig8.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig8.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (Waterstof)", 
                             'x':0.5}})
@@ -361,7 +361,7 @@ if rad == 'Elektrische Voertuigen':
     elif dropdown == 'CNG':
         #CNG
         fig9 = px.scatter(df_vr, x='Datum1', y='Aantal CNG', trendline='ols', trendline_color_override='red')
-        fig9.update_layout({'xaxis':{'title':{'text': 'Data'}}, 
+        fig9.update_layout({'xaxis':{'title':{'text': 'Data (Dag)'}}, 
                             'yaxis':{'title':{'text':"Aantal auto's"}}, 
                             'title':{'text':"Voorspelling Aantal Auto's 2020-2021 (CNG)", 
                             'x':0.5}})
