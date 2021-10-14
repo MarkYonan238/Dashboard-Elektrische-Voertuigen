@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 
 #Sidebar info
 st.set_page_config(layout="wide")
-rad = st.sidebar.radio(options=('Home', 'Maps', 'Laadpaal Info', 'Elektrische Voertuigen'), 
+rad = st.sidebar.radio(options=('Home', 'Maps', 'Laadpaal Info', 'Soorten Voertuigen'), 
                         label='Selecteer Categorie')
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')
@@ -251,7 +251,7 @@ if rad == 'Laadpaal Info':
 # In[6]:
 
 
-if rad == 'Elektrische Voertuigen':
+if rad == 'Soorten Voertuigen':
     st.header('Visualisaties Voertuigen')
     st.markdown('#')
     st.subheader('Aantal Voertuigen per Brandstof Categorie')
