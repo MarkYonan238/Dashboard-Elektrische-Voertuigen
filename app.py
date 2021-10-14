@@ -44,7 +44,6 @@ if rad == 'Home':
     img = Image.open("foto.png")
     st.image(img, width=800)
     "Het aanbod van elektrische auto's is de afgelopen jaren steeds meer gegroeid. Dat is ook te zien op de weg. Het percentage elektrische auto’s op de weg lijkt steeds groter te worden. Om dat te onderzoeken hebben we gekeken naar data van de RDW over elektrische voertuigen. Ook is er gekeken naar de plaatsing van laadpalen in Drenthe en een verdeling van de laadtijden per paal. Er wordt een regressielijn gevisualiseerd om een voorspelling te kunnen maken over de groei van auto’s van verschillende brandstoftypes. "
-    "Indien de verwachte groei gevonden wordt voor het aantal elektrische auto’s wordt ook gekeken naar de hoeveelheid elektrische laadpalen per elektrische auto en hoeveel er daar nodig van zijn met de groei van elektrische auto’s"
 
 # ## Maps
 
