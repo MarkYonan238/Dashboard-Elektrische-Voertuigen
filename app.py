@@ -55,7 +55,7 @@ if rad == 'Maps':
     st.header('Map Visualisaties')
     st.markdown('#')
     st.subheader('Aantal Laadpalen Drenthe')
-    '...'
+    'Onderstaande afbeelding geeft een kaart weer van de laadpaal locaties in de provincie Drenthe.'
     ##############################################################################################################
     #Code laadpalen Drenthe
     gpd_provinces = gpd.read_file('provinces.geojson')
