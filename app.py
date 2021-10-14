@@ -137,7 +137,7 @@ if rad == 'Maps':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Gemaakte Laadpalen per Jaar Nederland')
-    '...'
+    'In onderstaande histogram is een overzicht te zien waarin staat hoeveel laadpalen er per jaar geplaatst zijn. Zo is te zien dat er in 2015 meer dan 5000 laadpalen geplaatst zijn.'
     
     #Code histogram laadpalen jaren
     df_map['Date Created'] = pd.to_datetime(df_map['Date Created'])
