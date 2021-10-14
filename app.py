@@ -285,7 +285,7 @@ if rad == 'Elektrische Voertuigen':
     st.markdown('#')
     st.markdown('#')
     st.subheader('Voorspelling Aantal Voertuigen per Brandstof Categorie')
-    '...'
+    'In deze grafiek is voor de x-as (horizontaal) gekozen voor een nulpunt omdat met een datetime werken niet mogelijk was voor verschillende functies. Dit nulpunt wordt vertegenwoordigd door de datum 1 januari 2016. Elke stap verder is een dag. Dit verklaard de grote getallen op de x-as.'
     st.markdown('#')
     st.markdown('#')
     
