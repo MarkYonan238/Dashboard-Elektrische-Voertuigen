@@ -255,7 +255,7 @@ if rad == 'Soorten Voertuigen':
     st.header('Visualisaties Voertuigen')
     st.markdown('#')
     st.subheader('Aantal Voertuigen per Brandstof Categorie')
-    '...'
+    'In deze grafiek is voor elke brandstof categorie een lijn te zien. Deze geeft de groei aan van de verkochte voertuigen (over de afgelopen vijf jaar) op een logaritmische schaalverdeling.'
     ##############################################################################################################
     cm = pd.read_csv('cmm.csv')
 
