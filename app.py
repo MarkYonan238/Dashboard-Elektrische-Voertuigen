@@ -260,7 +260,7 @@ if rad == 'Soorten Voertuigen':
     cm2 = pd.read_csv('cmm2.csv')
 
     #Code lijndiagram per brandstof categorie
-    fig3= px.ecdf(cm, x='Datum', color='Brandstof omschrijving', ecdfnorm=None, log_y=True)
+    fig3= px.ecdf(cm2, x='Datum', color='Brandstof omschrijving', ecdfnorm=None, log_y=True)
 
     fig3.update_layout({'xaxis':{'title':{'text': 'Datum'}},
                         'yaxis':{'title':{'text':'Frequentie'}},
